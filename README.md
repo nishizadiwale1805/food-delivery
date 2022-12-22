@@ -1,20 +1,20 @@
-## Database Configuration
+# Project: Food Order
 
-Go to 'config' folder and Open 'constants.php' file. Then make changes on following constants
-```php
-<?php 
-//Start Session
-session_start();
+1. Setup AWS infrastructure including VPC with public and private subnets, launched bastion and private host for providing security where I pull the code from Github. Setup RDS instanvce for database storage.
 
-//Create Constants to Store Non Repeating Values
-define('SITEURL', 'http://localhost/food-order/'); //Update the home URL of the project if you have changed port number or it's live on server
-define('LOCALHOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'food-order');
-    
-$conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error()); //Database Connection
-$db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error()); //SElecting Database 
+2. Setup the ECR and pushed the images on it manually.
 
-?>
-```
+3. Created ECS cluster with EC2 instance & write Task defination with container details in it.
+
+4.  Created Dockerfile for building docker images.
+
+5. Setup CodePipeline with github configuration , created buildspec.yml file and automate the push on ECR
+
+6. Configure Application Load Balancer to access the application.
+
+7. Service is deployed manually with the ecs.
+
+8. the pipeline was successfully build but failed to deployed on AWS.
+
+
+http://techgenie-ecs-task-1705047770.us-east-2.elb.amazonaws.com
