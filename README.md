@@ -14,7 +14,7 @@
 
 7. Service is deployed manually with the ecs.
 
-8. the pipeline was successfully build but failed to deployed on AWS.
+8. The pipeline was successfully build & deployed on AWS.
 
 
 http://techgenie-ecs-task-1705047770.us-east-2.elb.amazonaws.com
