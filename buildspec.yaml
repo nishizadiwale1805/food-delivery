@@ -20,7 +20,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 833198168288.dkr.ecr.us-east-2.amazonaws.com/techgenierepo:latest
-      - printf '[{"name":"techgenie-ecs-cluster","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - printf '[{"name":"Food-order","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
