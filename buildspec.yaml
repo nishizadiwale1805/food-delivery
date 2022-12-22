@@ -13,7 +13,7 @@ phases:
       - docker --version
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t techgenierep .
+      - docker build -t techgenierepo .
       - docker tag techgenierepo:latest 833198168288.dkr.ecr.us-east-2.amazonaws.com/techgenierepo:latest
   post_build:
     commands:
