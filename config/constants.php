@@ -4,7 +4,7 @@
 
 
     //Create Constants to Store Non Repeating Values
-    define('SITEURL', 'http://Techgenie-ECS-task-1705047770.us-east-2.elb.amazonaws.com');
+    define('SITEURL', 'http://Techgenie-ECS-task-1705047770.us-east-2.elb.amazonaws.com/');
     define('LOCALHOST', 'food-order.c6ccdw5ahkes.us-east-2.rds.amazonaws.com');
     define('DB_USERNAME', 'admin');
     define('DB_PASSWORD', 'admin123');
