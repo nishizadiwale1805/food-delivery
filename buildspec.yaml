@@ -13,7 +13,7 @@ phases:
       - docker --version
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t food-order .
+      - docker build -t techgenierep .
       - docker tag 833198168288.dkr.ecr.us-east-2.amazonaws.com/techgenierepo:latest
   post_build:
     commands:
