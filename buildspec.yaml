@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - REPOSITORY_URI=833198168288.dkr.ecr.us-east-2.amazonaws.com/techgenierepo
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+  build:
+    commands:
+      - ls -lrt
+      - docker --version
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t food-order .
+      - docker tag 833198168288.dkr.ecr.us-east-2.amazonaws.com/techgenierepo:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 833198168288.dkr.ecr.us-east-2.amazonaws.com/techgenierepo:latest
+      - printf '[{"name":"techgenie-ecs-cluster","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - cat imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json
+
